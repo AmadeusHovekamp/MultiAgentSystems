@@ -71,17 +71,20 @@ $p \mapsto F, q \mapsto F, r \mapsto T$.
                     child { node (a1) {$q$}
                         child { node (b1) {$p$}
                             child { node (b2) {$\lnot p$}}
-                            child { node {$\lnot q$}}}
+                            child { node (a4) {$\lnot q$}}}
                         child { node (a2) {$\lnot q$}}
-                        child { node {$\lnot r$}
-                            child { node {$\lnot p$}
-                                child{ node {$p$}}
-                                child{ node {$r$}}}
+                        child { node (c1) {$\lnot r$}
+                            child { node (d1) {$\lnot p$}
+                                child{ node (d2) {$p$}}
+                                child{ node (c2) {$r$}}}
                             child { node (a3) {$\lnot q$}}}
 }}}};
 \draw [<->, dashed] (a1.south east) to [bend left] (a2.north east);
 \draw [<->, dashed] (a1.east) ++(0, 0.2em) to [bend left] (a3.north);
+\draw [<->, dashed] (a1.south west) ++(0.2em, 0) to (a4.north);
 \draw [<->, dashed] (b1.west) to [bend right] (b2.north);
+\draw [<->, dashed] (c1.south) to (c2.north);
+\draw [<->, dashed] (d1.west) to [bend right] (d2.north);
 \end{tikzpicture}\\\\
 Since its negation is unsatisfiable, $(\lnot p\land q \land r) \lor (p \land q) \lor (\lnot p \land \lnot r) \lor \lnot q$ is a tautology.
 \subsection{c)}
