@@ -17,7 +17,9 @@
 \setcounter{secnumdepth}{-1}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{Multi-Agent Systems, Exercise 1}
+\setlength{\headheight}{24.0pt}
+\lhead{Multi-Agent Systems,  Winter Semester 2018/2019, Exercise 1\\
+       Submitted by: Amadeus Hovekamp, Hans Nübel, Jonathan Pieper}
 \cfoot{\thepage}
 
 \usepackage[
@@ -32,7 +34,7 @@
 \date{\today}
 \section{Exercise 1.1}
 \subsection{a)}
-Each clause is a disjunction containing at least one negated atom. Therefore, the interpretation $p_i \mapsto \top \quad \forall i$ satisfies S.
+Each clause is a disjunction containing at least one negated atom. Therefore, the interpretation $p_i \mapsto T \quad \forall i$ satisfies S.
 \subsection{b)}
 \begin{align*}
 &(p \land (q \lor \lnot p))\lor(r \land \lnot(s \lor r)) \quad& \text{ Commutativity}\\
@@ -71,17 +73,20 @@ $p \mapsto F, q \mapsto F, r \mapsto T$.
                     child { node (a1) {$q$}
                         child { node (b1) {$p$}
                             child { node (b2) {$\lnot p$}}
-                            child { node {$\lnot q$}}}
+                            child { node (b3) {$\lnot q$}}}
                         child { node (a2) {$\lnot q$}}
-                        child { node {$\lnot r$}
-                            child { node {$\lnot p$}
-                                child{ node {$p$}}
-                                child{ node {$r$}}}
+                        child { node (c1) {$\lnot r$}
+                            child { node (d1) {$\lnot p$}
+                                child{ node (d2) {$p$}}
+                                child{ node (c2) {$r$}}}
                             child { node (a3) {$\lnot q$}}}
 }}}};
 \draw [<->, dashed] (a1.south east) to [bend left] (a2.north east);
 \draw [<->, dashed] (a1.east) ++(0, 0.2em) to [bend left] (a3.north);
 \draw [<->, dashed] (b1.west) to [bend right] (b2.north);
+\draw [<->, dashed] (a1.south west) to (b3.north);
+\draw [<->, dashed] (c1.south) to (c2.north);
+\draw [<->, dashed] (d1.west) to [bend right] (d2.north);
 \end{tikzpicture}\\\\
 Since its negation is unsatisfiable, $(\lnot p\land q \land r) \lor (p \land q) \lor (\lnot p \land \lnot r) \lor \lnot q$ is a tautology.
 \subsection{c)}
@@ -98,7 +103,7 @@ level 6/.style={sibling distance=5em}]
                         child{ node (c2) {$\lnot r$}}}
                     child { node {$(q \lor \lnot r)$}
                         child{ node (c3) {$\lnot r$}}
-                        child{ node (b2) {$\lnot p$}}}
+                        child{ node (b2) {$q$}}}
 }}}};
 \draw [<->, dashed] (a1.west) to [bend right] (a2.north);
 \draw [<->, dashed] (b1.east) to [bend left] (b2.north);
@@ -106,7 +111,7 @@ level 6/.style={sibling distance=5em}]
 \draw [<->, dashed] (c1.south east) ++(-0.3em, 0) to (c3.north);
 \end{tikzpicture}\\\\
 $p \land \lnot q \land (r \land p) \rightarrow (q \lor \lnot r) \land r$ is unsatisfiable, therefore\\
-$\{p \land \lnot q, (r \land p) \rightarrow (q \lor \lnot r)\} \models r$
+$\{p \land \lnot q, (r \land p) \rightarrow (q \lor \lnot r)\} \models \lnot r$
 
 \pagebreak
 
@@ -131,7 +136,7 @@ $\lnot C$ that Cyclope is not guilty. Other abbreviations analogous.
 \end{aligned}
 \end{equation*}
 
-This leads to the following set of formulae:
+This leads to the following set of formulae (applying the steps above to all statements):
 
 \begin{equation}
  \left\{ \lnot C , \lnot E , A \right\} \tag{1.1} \label{1.1}
@@ -207,10 +212,10 @@ This leads to the following set of formulae:
  \left\{ \lnot P , \lnot E , \lnot G \right\} \tag{8.1} \label{8.1}
 \end{equation}
 \begin{equation}
-\left\{ M , P \right\} \tag{8.2} \label{8.2}
+\left\{ P , E \right\} \tag{8.2} \label{8.2}
 \end{equation}
 \begin{equation}
-\left\{ M , \lnot C \right\} \tag{8.3} \label{8.3}
+\left\{ P , G \right\} \tag{8.3} \label{8.3}
 \end{equation}
 
 \begin{equation}
@@ -264,11 +269,11 @@ Now apply resolution:
 \end{equation}
 
 \begin{equation}
-\refequation{7.1} + \refequation{14}: \  \ \left\{ \lnot M , \lnot P \right\} \tag{15} \label{15}
+\refequation{7.2} + \refequation{14}: \  \ \left\{ C , M \right\} \tag{15} \label{15}
 \end{equation}
 
 \begin{equation}
-\refequation{7.3} + \refequation{15}: \  \ \left\{ \lnot P , \lnot C \right\} \tag{16} \label{16}
+\refequation{7.3} + \refequation{15}: \  \ \left\{ M \right\} \tag{16} \label{16}
 \end{equation}
 
 \begin{equation}
