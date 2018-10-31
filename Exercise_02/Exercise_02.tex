@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{fit}
+\usepackage{tikzscale}
+\usepackage{wrapfig}
+\setcounter{secnumdepth}{-1}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{24.0pt}
+\lhead{Multi-Agent Systems,  Winter Semester 2018/2019, Exercise 2\\
+       Submitted by: Amadeus Hovekamp, Hans Nübel, Jonathan Pieper}
+\cfoot{\thepage}
+
+\usepackage[
+        colorlinks = true,    % Disable drawing boxes around links.
+        linkcolor = black,    % Sets the color of links to black.
+    ]{hyperref}
+\newcommand{\refequation}[1]{\hyperref[#1]{(\ref{#1})}}
+
+\begin{document}
+\title{Exercise Sheet 2: Solution}
+\author{}
+\date{\today}
+\section{Exercise 2.1}
+\subsection{a)}
+\begin{align*}
+& M, w_1 \models K_1(\lnot l \land \hat K_2 l) \land [ \,a] \,(g \land K_1 l \land K_2 l)\\
+\text{1}\quad & M, w_1 \models K_1(\lnot l \land \hat K_2 l)\\
+\text{1.1}\quad & \text{for every } u: \text{if }(w_1, u) \in R(1) \text{ then } M, u \models (lnot l \land \hat K_2 l)\\
+\text{1.1.1}\quad & M, w_1 \models (\lnot l \land \hat K_2 l)\\
+\text{1.1.1.1}\quad & M, w_1 \models \lnot l \quad\text{\Smiley}\\
+\text{1.1.1.2}\quad & M, w_1 \models \hat K_2 l\\
+\text{1.1.1.2.1}\quad & \text{for some } u: (w_1, u) \in R(2) \text{ and } M, u \models l\\
+\text{1.1.1.2.1.2}\quad & \text{we find } u: (w_1, w_1) \in R(2) \text{ and } M, u \models l \quad\text{\Smiley}\\
+\text{2}\quad & M, w_1 \models [ \,a] \,(g \land K_1 l \land K_2 l)\\
+\text{2.1}\quad & \text{for every } u: \text{if }(w_1, u) \in R(a) \text{ then } M, u \models g \land K_1 l \land K_2 l\\
+\text{2.1.1}\quad & M, w_3 \models g \land K_1 l \land K_2 l\\
+\text{2.1.1.1}\quad & M, w_3 \models g \quad\text{\Smiley}\\
+\text{2.1.1.2}\quad & M, w_3 \models K_1 l\\
+\text{2.1.1.2.1}\quad & \text{for every } u: \text{if }(w_3, u) \in R(1) \text{ then } M, u \models l\\
+\text{2.1.1.2.1.1}\quad & M, w_3 \models l \quad\text{\Smiley}\\
+\text{2.1.1.3}\quad & M, w_3 \models K_2 l\\
+\text{2.1.1.3.1}\quad & \text{for every } u: \text{if }(w_3, u) \in R(2) \text{ then } M, u \models l\\
+\text{2.1.1.3.1.1}\quad & M, w_3 \models l \quad\text{\Smiley}\\
+\end{align*}
+\subsection{b)}
+Agent 1 is standing inside a garage and knows both whether the garage door is open and whether the light inside the garage is on. Agent 2 is standing outside this garage and always knows whether the garage door is open. Only if this is the case, he also knows that the light is on. Opening the garage turns on the light if it was off before. 
+\end{document}
