@@ -34,6 +34,7 @@
 \title{Exercise Sheet 2: Solution}
 \author{}
 \date{\today}
+
 \section{Exercise 3.1}
 \subsection{a)}
 \begin{tikzpicture}
@@ -48,6 +49,91 @@
 \draw[<->] (a.south) ++(1, 0) to (c.north);
 \end{tikzpicture}\\
 This yields the model $M = (W, R, V)$ with $W = \{w_1\}$, $R(K) = \{(w_1, w_1)\}$, $V(p) = {}$ and $V(q) = \{w_1\}$.
+
+
+\section{Exercise 3.1 Variation}
+\subsection{a)}
+
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$K\left(p \lor q\right) \land K \lnot p$};
+\end{tikzpicture}\\
+\\
+Apply AND-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$K\left(p \lor q\right) \land K \lnot p$,\\
+                         $K\left(p \lor q\right)$, $K \lnot p$};
+\end{tikzpicture}\\
+\\
+Apply Axiom T:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$K\left(p \lor q\right) \land K \lnot p$,\\
+                         $K\left(p \lor q\right)$, $K \lnot p$,\\
+                         $p \lor q$, $\lnot p$};
+\end{tikzpicture}\\
+\\
+Apply OR-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$K\left(p \lor q\right) \land K \lnot p$,\\
+                         $K\left(p \lor q\right)$, $K \lnot p$,\\
+                         $p \lor q$, $\lnot p$,\\
+                         $p$};
+\node[box] at(6, 0) (b) {$K\left(p \lor q\right) \land K \lnot p$,\\
+                         $K\left(p \lor q\right)$, $K \lnot p$,\\
+                         $p \lor q$, $\lnot p$,\\
+                         $q$};
+\end{tikzpicture}\\
+\\
+$\bot$-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$K\left(p \lor q\right) \land K \lnot p$,\\
+                         $K\left(p \lor q\right)$, $K \lnot p$,\\
+                         $p \lor q$, $\lnot p$,\\
+                         $p$,\\
+                         $\bot$};
+\node[box] at(6, 0) (b) {$K\left(p \lor q\right) \land K \lnot p$,\\
+                         $K\left(p \lor q\right)$, $K \lnot p$,\\
+                         $p \lor q$, $\lnot p$,\\
+                         $q$};
+\end{tikzpicture}\\
+\\
+No more rules can be applied and there is an open premodel left, thus the formula is satisfiable.
+Kripke Model: $M = (W, R, V)$ with $W = \{w_1\}$, $R(K) = \{(w_1, w_1)\}$,
+              $V(p) = \{\}$ and $V(q) = \{w_1\}$. 
+Pointed S5 model $(M, w)$ with M from above and $w=\{\lnot p, q\}$.
+
+\subsection{b)}
+
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( K \left(p \land q\right) \rightarrow K p \right)$};
+\end{tikzpicture}\\
+\\
+Apply NotImpl-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( K \left(p \land q\right) \rightarrow K p \right)$,\\
+                         $\left( K \left(p \land q\right) \land \lnot K p \right)$};
+\end{tikzpicture}\\
+\\
+Apply AND-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( K \left(p \land q\right) \rightarrow K p \right)$,\\
+                         $\left( K \left(p \land q\right) \land \lnot K p \right)$,\\
+                         $K \left(p \land q\right)$, $\lnot K p$};
+\end{tikzpicture}\\
+
 
 \section{Exercise 3.2}
 \begin{tabular}{c | c c c c c c}
