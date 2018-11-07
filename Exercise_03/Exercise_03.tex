@@ -35,23 +35,23 @@
 \author{}
 \date{\today}
 
+% \section{Exercise 3.1}
+% \subsection{a)}
+% \begin{tikzpicture}
+% \tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+% \node[box] at(0, 0) (a) {$K(p \lor q) \land K \lnot p$, $K(p \lor q)$, $K \lnot p$,\\
+%     $p \lor q, \lnot p, p$};
+% \node[box] at(-1, -2) (b) {$p \lor q$};
+% \node[box] at(1, -2) (c) {$\lnot p$};
+% \node[box] at(6, 0) (d) {$K(p \lor q) \land K \lnot p$, $K(p \lor q)$, $K \lnot p$,\\
+%     $p \lor q, \lnot p, q$};
+% \draw[<->] (a.south) ++(-1, 0) to (b.north);
+% \draw[<->] (a.south) ++(1, 0) to (c.north);
+% \end{tikzpicture}\\
+% This yields the model $M = (W, R, V)$ with $W = \{w_1\}$, $R(K) = \{(w_1, w_1)\}$, $V(p) = {}$ and $V(q) = \{w_1\}$.
+
+
 \section{Exercise 3.1}
-\subsection{a)}
-\begin{tikzpicture}
-\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
-\node[box] at(0, 0) (a) {$K(p \lor q) \land K \lnot p$, $K(p \lor q)$, $K \lnot p$,\\
-    $p \lor q, \lnot p, p$};
-\node[box] at(-1, -2) (b) {$p \lor q$};
-\node[box] at(1, -2) (c) {$\lnot p$};
-\node[box] at(6, 0) (d) {$K(p \lor q) \land K \lnot p$, $K(p \lor q)$, $K \lnot p$,\\
-    $p \lor q, \lnot p, q$};
-\draw[<->] (a.south) ++(-1, 0) to (b.north);
-\draw[<->] (a.south) ++(1, 0) to (c.north);
-\end{tikzpicture}\\
-This yields the model $M = (W, R, V)$ with $W = \{w_1\}$, $R(K) = \{(w_1, w_1)\}$, $V(p) = {}$ and $V(q) = \{w_1\}$.
-
-
-\section{Exercise 3.1 Variation}
 \subsection{a)}
 
 \begin{tikzpicture}
@@ -180,7 +180,19 @@ Duality:\\
 \end{tikzpicture}\\
 \\
 <l>-Rule
-
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( K \left(p \land q\right) \rightarrow K p \right)$,\\
+                         $\left( K \left(p \land q\right) \land \lnot K p \right)$,\\
+                         $K \left(p \land q\right)$, $\lnot K p$,\\
+                         $p \land q$,\\
+                         $p, q$,\\
+                         $\hat{K} \lnot p$
+};
+\node[box] at(0, -2) (b) {$\lnot p$};
+\draw[<->] (a.south) to (b.north);
+\end{tikzpicture}\\
 
 
 
@@ -207,7 +219,48 @@ Apply AND-Rule:\\
 \tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
 \node[box] at(0, 0) (a) {$\lnot \left( O \left(O p \rightarrow p \right) \rightarrow \left(O O p \rightarrow O p\right) \right)$};
 \end{tikzpicture}\\
-
+\\
+Apply NotImpl-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( O \left(O p \rightarrow p \right) \rightarrow \left(O O p \rightarrow O p\right) \right)$,\\
+                         $\left( O \left(O p \rightarrow p \right) \land \lnot \left(O O p \rightarrow O p\right) \right)$
+};
+\end{tikzpicture}\\
+\\
+Apply AND-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( O \left(O p \rightarrow p \right) \rightarrow \left(O O p \rightarrow O p\right) \right)$,\\
+                         $ O \left(O p \rightarrow p \right) \land \lnot \left(O O p \rightarrow O p\right) $,\\
+                         $ O \left(O p \rightarrow p \right)$, $\lnot \left(O O p \rightarrow O p\right) $
+};
+\end{tikzpicture}\\
+\\
+Apply NotImpl-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( O \left(O p \rightarrow p \right) \rightarrow \left(O O p \rightarrow O p\right) \right)$,\\
+                         $ O \left(O p \rightarrow p \right) \land \lnot \left(O O p \rightarrow O p\right)$,\\
+                         $ O \left(O p \rightarrow p \right)$, $\lnot \left(O O p \rightarrow O p\right)$,\\
+                         $ O O p \land \lnot O p$
+};
+\end{tikzpicture}\\
+\\
+Apply AND-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( O \left(O p \rightarrow p \right) \rightarrow \left(O O p \rightarrow O p\right) \right)$,\\
+                         $ O \left(O p \rightarrow p \right) \land \lnot \left(O O p \rightarrow O p\right)$,\\
+                         $ O \left(O p \rightarrow p \right)$, $\lnot \left(O O p \rightarrow O p\right)$,\\
+                         $ O O p \land \lnot O p$,\\
+                         $ O O p $, $ O p$
+};
+\end{tikzpicture}\\
 
 \subsection{e)}
 
