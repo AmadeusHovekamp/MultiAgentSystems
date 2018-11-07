@@ -133,7 +133,88 @@ Apply AND-Rule:\\
                          $\left( K \left(p \land q\right) \land \lnot K p \right)$,\\
                          $K \left(p \land q\right)$, $\lnot K p$};
 \end{tikzpicture}\\
+\\
+Apply Axiom T:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( K \left(p \land q\right) \rightarrow K p \right)$,\\
+                         $\left( K \left(p \land q\right) \land \lnot K p \right)$,\\
+                         $K \left(p \land q\right)$, $\lnot K p$,\\
+                         $p \land q$};
+\end{tikzpicture}\\
+\\
+Apply AND-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( K \left(p \land q\right) \rightarrow K p \right)$,\\
+                         $\left( K \left(p \land q\right) \land \lnot K p \right)$,\\
+                         $K \left(p \land q\right)$, $\lnot K p$,\\
+                         $p \land q$,\\
+                         $p, q$};
+\end{tikzpicture}\\
+\\
+Duality:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( K \left(p \land q\right) \rightarrow K p \right)$,\\
+                         $\left( K \left(p \land q\right) \land \lnot K p \right)$,\\
+                         $K \left(p \land q\right)$, $\lnot K p$,\\
+                         $p \land q$,\\
+                         $p, q$,\\
+                         $\lnot ( \lnot \hat{K} \lnot p )$
+};
+\end{tikzpicture}\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( K \left(p \land q\right) \rightarrow K p \right)$,\\
+                         $\left( K \left(p \land q\right) \land \lnot K p \right)$,\\
+                         $K \left(p \land q\right)$, $\lnot K p$,\\
+                         $p \land q$,\\
+                         $p, q$,\\
+                         $\hat{K} \lnot p$
+};
+\end{tikzpicture}\\
+\\
+<l>-Rule
 
+
+
+
+
+\subsection{c)}
+
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\left(K_a p \lor K_a \lnot p \right) \land K_b \left(K_a p \lor K_a \lnot p\right)$};
+\end{tikzpicture}\\
+\\
+Apply AND-Rule:\\
+\\
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\left(K_a p \lor K_a \lnot p \right) \land K_b \left(K_a p \lor K_a \lnot p\right)$,\\
+                         $\left(K_a p \lor K_a \lnot p \right)$, $K_b \left(K_a p \lor K_a \lnot p\right)$};
+\end{tikzpicture}\\
+
+
+\subsection{d)}
+
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( O \left(O p \rightarrow p \right) \rightarrow \left(O O p \rightarrow O p\right) \right)$};
+\end{tikzpicture}\\
+
+
+\subsection{e)}
+
+\begin{tikzpicture}
+\tikzstyle{box}=[rectangle,align=center,draw,text depth=.25ex,line width=0.1mm,fill=white]
+\node[box] at(0, 0) (a) {$\lnot \left( O K p \rightarrow O p\right)$};
+\end{tikzpicture}\\
 
 \section{Exercise 3.2}
 \begin{tabular}{c | c c c c c c}
