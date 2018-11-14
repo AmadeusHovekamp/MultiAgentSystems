@@ -1,0 +1,91 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{fit}
+\usepackage{tikzscale}
+\usepackage{wrapfig}
+\setcounter{secnumdepth}{-1}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{24.0pt}
+\lhead{Multi-Agent Systems,  Winter Semester 2018/2019, Exercise 4\\
+       Submitted by: Amadeus Hovekamp, Hans Nübel, Jonathan Pieper}
+\cfoot{\thepage}
+
+\usepackage[
+        colorlinks = true,    % Disable drawing boxes around links.
+        linkcolor = black,    % Sets the color of links to black.
+    ]{hyperref}
+\newcommand{\refequation}[1]{\hyperref[#1]{(\ref{#1})}}
+
+\begin{document}
+\title{Exercise Sheet 4: Solution}
+\author{}
+\date{\today}
+
+\section{Exercise 4.1}
+\subsection{a)}
+\begin{align*}
+Q &= \{0, 1, ..., 17\}\\
+Q_1 &= \{0, 2, ..., 16\}\\
+Q_2 &= \{1, 3, ..., 17\}\\
+S &= \{0, 1, ..., 9\}\\
+%Q &= \{(0, 1), (2, 1), (2, 3), (4, 3) ..., (8, 9), (1, 0), (1, 2), ..., (9, 8)\}\\
+M &= (W, R, V)\\
+W &= \{w_i \quad\forall i \in Q\}\\
+R(1) &= \{(w_i, w_i) \quad \forall i \in Q\} \cup
+        \{(w_i, w_{i + 1}) \quad\forall i \in Q_1 \setminus \{8\}\} \cup
+        \{(w_i, w_{i - 1}) \quad\forall i \in Q_2 \setminus \{9\}\}\\
+R(2) &= \{(w_i, w_i) \quad \forall i \in Q\} \cup
+        \{(w_i, w_{i - 1}) \quad\forall i \in Q_1 \setminus \{0\}\} \cup
+        \{(w_i, w_{i + 1}) \quad\forall i \in Q_2 \setminus \{17\}\}\\
+P &= \{a_i \forall i, j \in S\} \cup \{b_i \forall i, j \in S\}\\
+V(a_0) &= \{w_0\}\\
+V(b_1) &= \{w_0, w_1\}\\
+V(a_2) &= \{w_1, w_2\}\\
+V(b_3) &= \{w_2, w_3\}\\
+...\\
+V(b_9) &= \{w_8\}\\
+V(b_0) &= \{w_9\}\\
+V(a_1) &= \{w_9, w_{10}\}\\
+V(b_2) &= \{w_{10}, w_{11}\}\\
+V(a_3) &= \{w_{11}, w_{12}\}\\
+...\\
+V(a_9) &= \{w_{17}\}\\
+\end{align*}
+
+\subsection{b)}
+\begin{align*}
+\alpha_1 &= \lnot \bigvee_{i \in S} K_1 a_i\\
+\alpha_2 &= [!\alpha_1]\lnot \bigvee_{i \in S} K_2 b_i\\
+\alpha_3 &= [!\alpha_2]\lnot \bigvee_{i \in S} K_1 a_i\\
+\alpha_4 &= [!\alpha_3]\lnot \bigvee_{i \in S} K_2 b_i\\
+\alpha_5 &= [!\alpha_4] \bigvee_{i \in S} K_1 a_i\\
+\end{align*}
+
+\subsection{c)}
+In the beginning both agents know whether their number is even or odd, since the numbers are consecutive. Both agents know they can see each others numbers, so this is common knowledge. If agent 1 sees the number 0 (or 9) he can conclude his number is 1 (or 8 respectively), since these numbers are at the edge of the spectrum. Announcing he does not know his number narrows the spectrum of possible numbers for agent b. This continues until one agent knows his number.
+\begin{align*}
+C_{\{1, 2\}}(&\bigvee_{i \in \{1, 3, ..., 9\}}a_i \land \bigvee_{i \in \{0, 2, ..., 8\}}b_i)\\
+[!\alpha_1] & \lnot b_0\\
+[!\alpha_2] & \lnot a_1 \land \lnot a_9\\
+[!\alpha_3] & \lnot b_2 \land \lnot b_8\\
+[!\alpha_4] & \lnot a_3 \land \lnot a_7\\
+[!\alpha_5] & b_4 \lor b_6\\
+\end{align*}
+
+\subsection{d)}
+The number of Agent 1 is 5. Agent 2 does not know his number in the end, since Agent 1 would have acted the same way if it was 6.
+\end{document}
