@@ -1,0 +1,79 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{tikzsymbols}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{fit}
+\usepackage{tikzscale}
+\usepackage{wrapfig}
+\setcounter{secnumdepth}{-1}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{24.0pt}
+\lhead{Multi-Agent Systems,  Winter Semester 2018/2019, Exercise 5\\
+       Submitted by: Amadeus Hovekamp, Hans Nübel, Jonathan Pieper}
+\cfoot{\thepage}
+
+\usepackage[
+        colorlinks = true,    % Disable drawing boxes around links.
+        linkcolor = black,    % Sets the color of links to black.
+    ]{hyperref}
+\newcommand{\refequation}[1]{\hyperref[#1]{(\ref{#1})}}
+
+\begin{document}
+\title{Exercise Sheet 5: Solution}
+\author{}
+\date{\today}
+
+\section{Exercise 5.1}
+\subsection{a)}
+$
+K(\phi \land \lnot K \phi)
+\models_{N, K} K \phi \land K \lnot K \phi
+\models_T K \phi \land \lnot K \phi
+\models \bot
+$\\
+An agent cannot know know $\phi$ while not knowing $\phi$.\\
+Rather, $[!\phi \land \lnot K\phi]K\phi \land K\phi$ holds.
+
+\subsection{b)}
+$
+K_j K_i \phi
+\models K_j K_i \phi \land (K_i \phi \rightarrow_T \phi)
+\models_N K_j K_i \phi \land K_j(K_i \phi \rightarrow_T \phi)
+\models_K K_j \phi
+$
+An agent knows all logical implications of his knowledge, including the use of axioms. 
+
+\subsection{c)}
+$
+O(\phi \land \psi)
+\models O(\phi \land \psi) \land (\phi \land \psi \rightarrow \psi)
+\models_N O(\phi \land \psi) \land O(\phi \land \psi \rightarrow \psi)
+\models_K O(\psi)
+$
+An agent is obliged to all generalizations of his obligations.
+
+\subsection{d)}
+$
+P\phi \land \lnot P\psi
+\models P\phi
+\models_{N, K} P(\phi \lor \psi)
+$
+If only $\phi$ is permitted while $\psi$ is not, $\phi \lor \psi$ is permitted (weakening rule). This is a counterexample to the given statement.
+\subsection{e)}
+$
+\models_T O(\phi) \rightarrow \phi
+\models_N O(O(\phi) \rightarrow \phi)
+$
+\end{document}
