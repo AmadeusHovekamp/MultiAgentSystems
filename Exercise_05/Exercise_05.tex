@@ -52,7 +52,7 @@ K_j K_i \phi
 \models K_j K_i \phi \land (K_i \phi \rightarrow_T \phi)
 \models_N K_j K_i \phi \land K_j(K_i \phi \rightarrow_T \phi)
 \models_K K_j \phi
-$
+$\\
 An agent knows all logical implications of his knowledge, including the use of axioms. 
 
 \subsection{c)}
@@ -61,7 +61,7 @@ O(\phi \land \psi)
 \models O(\phi \land \psi) \land (\phi \land \psi \rightarrow \psi)
 \models_N O(\phi \land \psi) \land O(\phi \land \psi \rightarrow \psi)
 \models_K O(\psi)
-$
+$\\
 An agent is obliged to all generalizations of his obligations.
 
 \subsection{d)}
@@ -69,11 +69,32 @@ $
 P\phi \land \lnot P\psi
 \models P\phi
 \models_{N, K} P(\phi \lor \psi)
-$
+$\\
 If only $\phi$ is permitted while $\psi$ is not, $\phi \lor \psi$ is permitted (weakening rule). This is a counterexample to the given statement.
 \subsection{e)}
 $
 \models_T O(\phi) \rightarrow \phi
 \models_N O(O(\phi) \rightarrow \phi)
+$
+
+\section{Exercise 5.2}
+$p$ is true iff the passenger is alive. $q$ is true iff the pedestrian is alive.\\
+\subsection{a)}
+$
+\Diamond(K p \land K \lnot q) \land \Diamond(\lnot K p \land \lnot K \lnot p \land K q)
+$
+\subsection{b)}
+$
+O(\lnot K p \land \lnot K \lnot p \land K q)
+$
+\subsection{c)}
+$
+O(\lnot K \lnot p \land \lnot K \lnot q)
+$
+\subsection{d)}
+$
+O(\lnot K p \land \lnot K \lnot p \land K q)
+\models_{N, K} O(\lnot K \lnot p \land K q)
+\models_{D, N, K} O(\lnot K \lnot p \land \lnot K \lnot q)
 $
 \end{document}
