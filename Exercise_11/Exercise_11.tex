@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{automata}
+\usetikzlibrary{fit}
+\usepackage{tikzscale}
+\usepackage{wrapfig}
+\setcounter{secnumdepth}{-1}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{24.0pt}
+\lhead{Multi-Agent Systems,  Winter Semester 2018/2019, Exercise 11\\
+       Submitted by: Amadeus Hovekamp, Hans Nübel, Jonathan Pieper}
+\cfoot{\thepage}
+
+\usepackage[
+        colorlinks = true,    % Disable drawing boxes around links.
+        linkcolor = black,    % Sets the color of links to black.
+    ]{hyperref}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{darkred}{rgb}{0.5, 0.0, 0.0}
+\newcommand{\refequation}[1]{\hyperref[#1]{(\ref{#1})}}
+
+\begin{document}
+\title{Exercise Sheet 11: Solution}
+\author{}
+\date{\today}
+
+\section{Exercise 11.1}
+\subsection{a)}
+\begin{tabular}{r|l}
+Step    & L\\\hline
+0       & $\emptyset$\\
+1       & $\{(a,\textbf{in})\}$\\
+2       & $\{(a,\textbf{in}), (b,\textbf{out})\}$\\
+3       & $\{(a,\textbf{in}), (b,\textbf{out})\}$\\
+\end{tabular}
+
+The grounded labeling is $L_1 := \{(a,\textbf{in}), (b,\textbf{out}), (c,\textbf{undec}), (d,\textbf{undec}), (e,\textbf{undec})\}$
+
+\subsection{b)}
+The grounded labeling $L_1$ is (by definition) complete. Further complete labelings are:\\
+$L_2 := \{(a,\textbf{in}), (b,\textbf{out}), (c,\textbf{out}), (d,\textbf{in}), (e,\textbf{out})\}$\\
+$L_3 := \{(a,\textbf{in}), (b,\textbf{out}), (c,\textbf{in}), (d,\textbf{out}), (e,\textbf{in})\}$\\
+$L_2$ and $L_3$ are both preferred and stable.
+
+\subsection{c)}
+\begin{itemize}
+\item \emph{e} is in the \textbf{in} set of some preferred labeling\\
+M: in(e)\\
+S: out(d)\\
+M: in(c)\\
+S: out(b)\\
+M: in(a)
+\item \emph{d} is in the \textbf{in} set of some preferred labeling\\
+M: in(d)\\
+S: out(c)\\
+M: in(d)\\
+\item \emph{c} is in the \textbf{in} set of some preferred labeling\\
+M: in(c)\\
+S: out(b)\\
+M: in(a)\\
+S: out(d)\\
+M: in(c)\\
+\item \emph{b} is not in the \textbf{in} set of some preferred labeling\\
+M: in(b)\\
+S: out(a)\\
+\item \emph{a} is in the \textbf{in} set of some preferred labeling\\
+M: in(a)\\
+\end{itemize}
+
+
+
+\end{document}
