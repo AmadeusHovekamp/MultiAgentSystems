@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+\usepackage[english]{babel}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{automata}
+\usetikzlibrary{fit}
+\usepackage{tikzscale}
+\usepackage{wrapfig}
+\setcounter{secnumdepth}{-1}
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{24.0pt}
+\lhead{Multi-Agent Systems,  Winter Semester 2018/2019, Exercise 11\\
+       Submitted by: Amadeus Hovekamp, Hans Nübel, Jonathan Pieper}
+\cfoot{\thepage}
+
+\usepackage[
+        colorlinks = true,    % Disable drawing boxes around links.
+        linkcolor = black,    % Sets the color of links to black.
+    ]{hyperref}
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+\definecolor{darkred}{rgb}{0.5, 0.0, 0.0}
+\newcommand{\refequation}[1]{\hyperref[#1]{(\ref{#1})}}
+
+\begin{document}
+\title{Exercise Sheet 11: Solution}
+\author{}
+\date{\today}
+
+\section{Exercise 12.1}
+\subsection{a)}
+\begin{itemize}
+\item \emph{Symmetry}\\
+    The sum operator is commutative and the permutations of $N$ can be rearranged in a way for $i$ and $j$ to substitute each other. $i \notin C_i(o) \quad\forall o$.
+    $j \in S$: $\mu_i(S) = v(S \cup i) - v(S) = v((S \setminus j \cup i) \cup j) - v(S \setminus j \cup i) = \mu_j(S \setminus j \cup i)$
+    $j \notin S$: $\mu_i(S) = v(S \cup i) - v(S) = v(S \cup j) - v(S) = \mu_j(S)$
+\item \emph{Dummy Player}\\
+    $\mu_i(S \cup j) = v(S \cup j \cup i) - v(S \cup j) = (v(S \cup i) + v(\{j\})) - (v(S) + v(\{j\}) = v(S \cup i) - v(S) = \mu_i(S)$
+\item \emph{Additivity}\\
+    $(v_1 + v_2)(S \cup i) - (v_1 + v_2)(S) = v_1(S \cup i) - v_1(S) + v_2(S \cup i) - v_2(S)$
+\end{itemize}
+
+\subsection{b)}
+\begin{align*}
+\sum_{i \in N}\Psi_i(N, v)=&\sum_{i \in N}\frac{1}{N!}\sum_{o \in \Pi(N)} \mu_i(C_i(o))\\
+=&\frac{1}{N!}\sum_{o \in \Pi(N)}\sum_{i \in N} (v(C_i(o) \cup i) - v(C_i(o)))\\
+=&\frac{1}{N!}\sum_{o \in \Pi(N)} (v(N) - v(C_{o_{N-1}}(o)) + v(C_{o_{N-1}}(o)) - \cdots - v(\emptyset))\\
+=&\frac{|\Pi(N)|}{N!} v(N)\\
+=&v(N)
+\end{align*}
+
+\section{Exercise 12.2}
+See \texttt{taxi.py}
+
+
+
+\end{document}
